@@ -10,7 +10,7 @@ export default function Header() {
       <h1 className="text-2xl font-semibold text-center">EVAUTH</h1>
       <div className="flex gap-5 items-center px-10">
         <Link href="/">Inicio</Link>
-        <Link href="/#events">Proximos Eventos</Link>
+        <Link href="/#events">Próximos Eventos</Link>
         <Link href="/#about">Acerca de</Link>
         <Link href="/#contact">Contacto</Link>
       </div>
