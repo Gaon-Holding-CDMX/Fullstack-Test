@@ -20,7 +20,7 @@ export default function Preview() {
   }, []);
 
   return (
-    <div className="h-full w-full relative">
+    <div className="min-h-[calc(100vh-7rem)] w-full relative">
       <div id="back" className="h-full w-full absolute"></div>
       <div className="h-full w-full absolute flex justify-center items-center flex-col gap-5">
         <h1 className="text-5xl font-semibold">EVAUTH</h1>
