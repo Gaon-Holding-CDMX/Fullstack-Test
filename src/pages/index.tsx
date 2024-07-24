@@ -1,6 +1,5 @@
 import Layout from "@/components/common/Layout";
 import Preview from "@/components/Preview";
-import type { Metadata } from "next";
 
 // internal pages
 import Events from "@/components/Events";
