@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import LinkAsButton from "./LinkAsButton";
 import { Menu, LogOut } from "lucide-react";
+import axios from "axios";
 
 interface Link {
   href: string;
@@ -52,8 +53,14 @@ export default function Header({
   }
 
   function handleExit() {
-    localStorage.removeItem("token");
-    window.location.href = "/";
+    axios
+      .get("/api/auth/logout")
+      .then((_) => {
+        window.location.href = "/";
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   return (
