@@ -21,7 +21,7 @@ export default function Login() {
         password,
       })
       .then((_) => {
-        window.location.href = "/home";
+        window.location.href = "/events";
       })
       .catch((err) => {
         console.error(err);

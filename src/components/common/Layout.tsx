@@ -70,7 +70,28 @@ export default function Layout({
 }>) {
   return (
     <>
-      <Header withAction />
+      <Header
+        withLogin
+        withExit={false}
+        links={[
+          {
+            href: "/",
+            children: "Inicio",
+          },
+          {
+            href: "/#events",
+            children: "Eventos",
+          },
+          {
+            href: "/#about",
+            children: "Acerca de",
+          },
+          {
+            href: "/#contact",
+            children: "Contacto",
+          },
+        ]}
+      />
       <Content>{children}</Content>
     </>
   );
@@ -83,7 +104,54 @@ export function LayoutWithoutLogin({
 }>) {
   return (
     <>
-      <Header withAction={false} />
+      <Header
+        withLogin={false}
+        withExit={false}
+        links={[
+          {
+            href: "/",
+            children: "Inicio",
+          },
+          {
+            href: "/#events",
+            children: "Eventos",
+          },
+          {
+            href: "/#about",
+            children: "Acerca de",
+          },
+          {
+            href: "/#contact",
+            children: "Contacto",
+          },
+        ]}
+      />
+      <Content>{children}</Content>
+    </>
+  );
+}
+
+export function LayoutHome({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <>
+      <Header
+        withLogin={false}
+        withExit
+        links={[
+          {
+            href: "/events",
+            children: "Todos los Eventos",
+          },
+          {
+            href: "/my_events",
+            children: "Mis eventos",
+          },
+        ]}
+      />
       <Content>{children}</Content>
     </>
   );

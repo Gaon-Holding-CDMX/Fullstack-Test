@@ -2,7 +2,12 @@
 
 import { useRef } from "react";
 import LinkAsButton from "./LinkAsButton";
-import { Menu } from "lucide-react";
+import { Menu, LogOut } from "lucide-react";
+
+interface Link {
+  href: string;
+  children: string;
+}
 
 function Link({
   href,
@@ -24,7 +29,15 @@ function Link({
   );
 }
 
-export default function Header({ withAction }: { withAction: boolean }) {
+export default function Header({
+  withLogin,
+  withExit,
+  links,
+}: {
+  withLogin: boolean;
+  withExit: boolean;
+  links: Link[];
+}) {
   const backRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -36,6 +49,11 @@ export default function Header({ withAction }: { withAction: boolean }) {
   function closeMenu() {
     backRef.current?.classList.add("max-lg:hidden");
     menuRef.current?.classList.add("max-lg:hidden");
+  }
+
+  function handleExit() {
+    localStorage.removeItem("token");
+    window.location.href = "/";
   }
 
   return (
@@ -65,22 +83,23 @@ export default function Header({ withAction }: { withAction: boolean }) {
         >
           <div className="grid grid-cols-[1fr_auto] max-lg:flex max-lg:flex-col max-lg:gap-7 max-lg:pt-10">
             <div className="flex gap-5 items-center px-10 max-lg:flex-col max-lg:items-start">
-              <Link href="/" close={closeMenu}>
-                Inicio
-              </Link>
-              <Link href="/#events" close={closeMenu}>
-                Próximos Eventos
-              </Link>
-              <Link href="/#about" close={closeMenu}>
-                Acerca de
-              </Link>
-              <Link href="/#contact" close={closeMenu}>
-                Contacto
-              </Link>
+              {links.map((link, index) => (
+                <Link key={index} href={link.href} close={closeMenu}>
+                  {link.children}
+                </Link>
+              ))}
             </div>
-            {withAction ? (
+            {withLogin || withExit ? (
               <div className="flex justify-center items-center cursor-pointer max-lg:justify-start max-lg:pl-10">
-                <LinkAsButton href="/login">Acceder</LinkAsButton>
+                {withLogin ? (
+                  <LinkAsButton href="/login">Acceder</LinkAsButton>
+                ) : null}
+
+                {withExit ? (
+                  <span onClick={handleExit} className="cursor-pointer">
+                    <LogOut />
+                  </span>
+                ) : null}
               </div>
             ) : (
               <div></div>
