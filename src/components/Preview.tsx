@@ -26,7 +26,7 @@ export default function Preview() {
       <div className="h-full w-full absolute flex justify-center items-center flex-col gap-5">
         <h1 className="text-5xl font-semibold">EVAUTH</h1>
         <h3 className="text-2xl text-center">
-          EVAUTH es una plataforma de autenticación y autorización.
+          EVAUTH es una plataforma de autorización para eventos.
         </h3>
       </div>
       <script

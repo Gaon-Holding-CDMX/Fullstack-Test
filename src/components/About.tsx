@@ -1,6 +1,6 @@
 function Card({ title, description }: { title: string; description: string }) {
   return (
-    <div className="bg-background shadow-md rounded-lg flex flex-col w-[25rem]">
+    <div className="bg-background shadow-md rounded-lg flex flex-col w-[25rem] max-lg:w-[20rem] max-md:w-[17rem]">
       <div className="flex flex-col gap-5 p-5">
         <div>
           <h3 className="text-xl font-semibold">{title}</h3>
@@ -13,9 +13,9 @@ function Card({ title, description }: { title: string; description: string }) {
 
 export default function About() {
   return (
-    <section id="about" className="p-10 flex flex-col gap-10">
+    <section id="about" className="p-10 flex flex-col gap-10 max-sm:px-5">
       <h2 className="text-3xl font-semibold text-center">Acerca de Nosotros</h2>
-      <div className="flex flex-wrap gap-5 justify-center text-lg px-56">
+      <div className="flex flex-wrap gap-5 justify-center text-lg px-56 max-lg:px-10 max-sm:px-5">
         EVAUTH es una innovadora plataforma de autenticación y autorización
         diseñada para asegurar la integridad y seguridad de los eventos que
         organizan los usuarios, los organizadores de eventos pueden gestionar de

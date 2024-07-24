@@ -9,7 +9,7 @@ export default function Layout({
   return (
     <>
       <Header />
-      <div className="overflow-auto w-full bg-red-100">{children}</div>
+      <div className="overflow-auto w-full bg-background-accent">{children}</div>
       <footer className="bg-background grid grid-cols-[1fr_auto] md:px-16 px-7 py-8">
         <div className="flex gap-5">
           <a href="https://www.facebook.com/" target="_blank">

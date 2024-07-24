@@ -9,7 +9,7 @@ import Contact from "@/components/Contact";
 
 export const metadata: Metadata = {
   title: "EVAUTH - Inicio",
-  description: "EVAUTH es una plataforma de autenticación y autorización.",
+  description: "EVAUTH es una plataforma de autorización para eventos.",
 };
 
 export default function Home() {

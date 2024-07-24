@@ -10,12 +10,12 @@ function Card({
   image: string;
 }) {
   return (
-    <div className="bg-background shadow-md rounded-lg flex flex-col w-[20rem] h-[25rem] cursor-pointer">
+    <div className="bg-background shadow-md rounded-lg flex flex-col w-[20rem] h-[25rem] cursor-pointer max-lg:w-[15rem] max-lg:h-[20rem] max-sm:w-[20rem] max-sm:h-[25rem]">
       <div>
         <img
           src={image}
           alt={title}
-          className="w-full h-[10rem] object-cover rounded-t-lg"
+          className="w-full h-[10rem] max-lg:h-[7rem] max-sm:h-[10rem] object-cover rounded-t-lg"
         />
       </div>
       <div className="flex flex-col gap-5 p-5">
@@ -23,7 +23,7 @@ function Card({
           <h3 className="text-xl font-semibold">{title}</h3>
           <p className="text-slate-300 text-sm">{date}</p>
         </div>
-        <p className="text-slate-100 line-clamp-5">{description}</p>
+        <p className="text-slate-100 line-clamp-5 max-lg:line-clamp-4 max-sm:line-clamp-5">{description}</p>
       </div>
     </div>
   );
@@ -31,9 +31,9 @@ function Card({
 
 export default function Events() {
   return (
-    <section id="events" className="p-10 flex flex-col gap-10">
+    <section id="events" className="p-10 flex flex-col gap-10 max-sm:px-5">
       <h2 className="text-3xl font-semibold text-center">Próximos Eventos</h2>
-      <div className="flex flex-wrap gap-5 justify-center">
+      <div className="flex flex-wrap gap-10 justify-center">
         <Card
           title="Evento 3"
           date="03/03/2022"
