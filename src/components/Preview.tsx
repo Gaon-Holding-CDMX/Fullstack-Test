@@ -2,8 +2,9 @@
 
 import { useEffect } from "react";
 
-export default function Preview() {
-  useEffect(() => {
+function initVanta() {
+  // @ts-ignore
+  if (window.VANTA) {
     // @ts-ignore
     VANTA.TRUNK({
       el: "#back",
@@ -18,6 +19,14 @@ export default function Preview() {
       scaleMobile: 1.0,
       chaos: 6.0,
     });
+  } else {
+    setTimeout(initVanta, 200);
+  }
+}
+
+export default function Preview() {
+  useEffect(() => {
+    initVanta();
   }, []);
 
   return (

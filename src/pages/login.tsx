@@ -9,7 +9,7 @@ export default function Login() {
       <div className="w-full h-full flex items-center justify-center">
         <div className="flex flex-col gap-5 max-md:container w-[600px] p-7">
           <div className="flex flex-col gap-10 bg-background p-10 rounded-md">
-            <h2 className="text-xl font-bold">Registrarse en EVAUTH</h2>
+            <h2 className="text-xl font-bold">Iniciar Sesión en EVAUTH</h2>
             <div className="flex flex-col gap-7">
               <div className="flex flex-col gap-2">
                 <Label>Correo electrónico</Label>
@@ -30,12 +30,12 @@ export default function Login() {
                 />
               </div>
             </div>
-            <Button id="register">Registrarse</Button>
+            <Button id="login">Iniciar Sesión</Button>
           </div>
           <div className="flex gap-2">
-            <div className="text-slate-300">¿Ya tienes cuenta?</div>
-            <a href="/login" className="text-blue-300 font-bold">
-              Inicia sesión
+            <div className="text-slate-300">¿No tienes cuenta?</div>
+            <a href="/register" className="text-blue-300 font-bold">
+              Regístrate
             </a>
           </div>
         </div>

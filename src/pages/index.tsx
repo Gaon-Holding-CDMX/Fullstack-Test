@@ -7,11 +7,6 @@ import Events from "@/components/Events";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 
-export const metadata: Metadata = {
-  title: "EVAUTH - Inicio",
-  description: "EVAUTH es una plataforma de autorización para eventos.",
-};
-
 export default function Home() {
   return (
     <main className="bg-background-accent h-full">
