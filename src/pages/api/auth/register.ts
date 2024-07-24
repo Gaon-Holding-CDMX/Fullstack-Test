@@ -1,7 +1,7 @@
-import { connectDB } from "@/utils/mongoose";
+import { connectDB } from "@/lib/mongoose";
 import { NextApiRequest, NextApiResponse } from "next";
 import User, { validateUser } from "@/models/User";
-import { hashPassword } from "@/utils/auth";
+import { hashPassword } from "@/lib/hash";
 
 async function register(req: NextApiRequest, res: NextApiResponse) {
   const user = req.body;

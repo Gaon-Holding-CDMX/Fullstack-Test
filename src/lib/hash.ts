@@ -1,6 +1,4 @@
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-
 const saltRounds = 10;
 
 export async function hashPassword(password: string): Promise<string | null> {
@@ -25,14 +23,4 @@ export async function checkPassword(
     console.error(error);
     return false;
   }
-}
-
-export function generateToken(payload: string | object | Buffer): string {
-  return jwt.sign(payload, process.env.JWT_SECRET ?? "secret", {
-    expiresIn: "7d",
-  });
-}
-
-export function verifyToken(token: string): string | object {
-  return jwt.verify(token, process.env.JWT_SECRET ?? "secret");
 }

@@ -1,7 +1,8 @@
-import { connectDB } from "@/utils/mongoose";
+import { connectDB } from "@/lib/mongoose";
 import { NextApiRequest, NextApiResponse } from "next";
-import { checkPassword, generateToken } from "@/utils/auth";
-import User, { validateUser } from "@/models/User";
+import { checkPassword } from "@/lib/hash";
+import { generateToken } from "@/lib/auth";
+import User, { validateUser } from "@/models/User";;
 
 async function login(req: NextApiRequest, res: NextApiResponse) {
   const user = req.body;
@@ -23,7 +24,7 @@ async function login(req: NextApiRequest, res: NextApiResponse) {
       return res.status(401).json({ message: "Invalid password" });
     }
 
-    const token = generateToken({
+    const token = await generateToken({
       id: userInDB._id.toString(),
     });
 
