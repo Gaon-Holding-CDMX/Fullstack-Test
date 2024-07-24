@@ -24,7 +24,7 @@ function Link({
   );
 }
 
-export default function Header() {
+export default function Header({ withAction }: { withAction: boolean }) {
   const backRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -78,9 +78,13 @@ export default function Header() {
                 Contacto
               </Link>
             </div>
-            <div className="flex justify-center items-center cursor-pointer max-lg:justify-start max-lg:pl-10">
-              <LinkAsButton href="/login">Acceder</LinkAsButton>
-            </div>
+            {withAction ? (
+              <div className="flex justify-center items-center cursor-pointer max-lg:justify-start max-lg:pl-10">
+                <LinkAsButton href="/login">Acceder</LinkAsButton>
+              </div>
+            ) : (
+              <div></div>
+            )}
           </div>
         </div>
       </div>

@@ -1,15 +1,16 @@
 import Header from "@/components/common/Header";
 import { Copyright } from "lucide-react";
 
-export default function Layout({
+function Content({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <>
-      <Header />
-      <div className="overflow-auto w-full bg-background-accent">{children}</div>
+      <div className="overflow-auto w-full bg-background-accent">
+        {children}
+      </div>
       <footer className="bg-background grid grid-cols-[1fr_auto] md:px-16 px-7 py-8">
         <div className="flex gap-5">
           <a href="https://www.facebook.com/" target="_blank">
@@ -58,6 +59,32 @@ export default function Layout({
           </div>
         </div>
       </footer>
+    </>
+  );
+}
+
+export default function Layout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <>
+      <Header withAction />
+      <Content>{children}</Content>
+    </>
+  );
+}
+
+export function LayoutWithoutLogin({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <>
+      <Header withAction={false} />
+      <Content>{children}</Content>
     </>
   );
 }

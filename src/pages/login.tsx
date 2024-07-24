@@ -1,4 +1,4 @@
-import Layout from "@/components/common/Layout";
+import { LayoutWithoutLogin } from "@/components/common/Layout";
 import Button from "@/components/common/Button";
 import Input from "@/components/common/Input";
 import Label from "@/components/common/Label";
@@ -44,4 +44,4 @@ export default function Login() {
   );
 }
 
-Login.Layout = Layout;
+Login.Layout = LayoutWithoutLogin;

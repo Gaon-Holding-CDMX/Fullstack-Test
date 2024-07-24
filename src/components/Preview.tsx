@@ -20,7 +20,7 @@ function initVanta() {
       chaos: 6.0,
     });
   } else {
-    setTimeout(initVanta, 200);
+    setTimeout(initVanta, 50);
   }
 }
 
