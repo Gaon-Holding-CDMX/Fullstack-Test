@@ -15,8 +15,8 @@ const schema = z.object({
   password: z.string().min(8),
 });
 
-UserSchema.methods.validate = function (obj: typeof UserSchema): boolean {
+export function validateUser(obj: typeof UserSchema): boolean {
   return schema.safeParse(obj).success;
-};
+}
 
 export default models.User || model("User", UserSchema);

@@ -32,7 +32,7 @@ export default function Preview() {
   return (
     <div className="min-h-[calc(100vh-6rem)] w-full relative">
       <div id="back" className="h-full w-full absolute"></div>
-      <div className="h-full w-full absolute flex justify-center items-center flex-col gap-5">
+      <div className="h-full w-full absolute flex justify-center items-center flex-col gap-5 px-10">
         <h1 className="text-5xl font-semibold">EVAUTH</h1>
         <h3 className="text-2xl text-center">
           EVAUTH es una plataforma de autorización para eventos.

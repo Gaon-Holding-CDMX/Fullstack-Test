@@ -1,12 +1,12 @@
 import { connectDB } from "@/utils/mongoose";
 import { NextApiRequest, NextApiResponse } from "next";
-import User from "@/models/User";
+import User, { validateUser } from "@/models/User";
 import { hashPassword } from "@/utils/auth";
 
 async function register(req: NextApiRequest, res: NextApiResponse) {
   const user = req.body;
 
-  if (!User.validate(user)) {
+  if (!validateUser(user)) {
     return res.status(400).json({ message: "Invalid data" });
   }
 
