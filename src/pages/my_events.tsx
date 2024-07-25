@@ -12,7 +12,7 @@ import axios from "axios";
 import moment from "moment";
 import { Trash2 } from "lucide-react";
 
-interface Event {
+export interface Event {
   title: string;
   description: string;
   date: string;
@@ -148,7 +148,7 @@ export default function Home() {
         </div>
         <div className="flex flex-wrap gap-10 justify-center">
           {events.map((event, index) => (
-            <div key={index} className="relative group/card cursor-pointer">
+            <div key={index} className="relative group/card cursor-pointer select-none">
               <div className="hidden absolute h-full w-full top-0 left-0 group-hover/card:flex">
                 <div className="flex w-full h-full justify-end items-start">
                   <span
