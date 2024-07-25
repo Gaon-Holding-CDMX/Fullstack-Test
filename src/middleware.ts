@@ -6,6 +6,10 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const userId = await authenticated(request);
 
+  if (pathname.startsWith("/api/private") && !userId) {
+    return;
+  }
+
   if (
     (pathname.startsWith("/events") || pathname.startsWith("/my_events")) &&
     !userId

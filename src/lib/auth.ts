@@ -1,5 +1,6 @@
 import { SignJWT, jwtVerify } from "jose";
 import type { NextRequest } from "next/server";
+import { NextApiRequest } from "next";
 
 interface Claims {
   id: string;
@@ -42,6 +43,22 @@ export async function authenticated(request: NextRequest): Promise<string | null
 
   try {
     const obj = await verifyToken(token.value);
+    return obj.id;
+  } catch (e) {
+    console.log(e);
+    return null;
+  }
+}
+
+export async function getUserId(request: NextApiRequest): Promise<string | null> {
+  const token = request.cookies.token;
+
+  if (!token) {
+    return null;
+  }
+
+  try {
+    const obj = await verifyToken(token);
     return obj.id;
   } catch (e) {
     console.log(e);
