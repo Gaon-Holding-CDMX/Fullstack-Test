@@ -33,6 +33,14 @@ export default async function handler(
   const userId = await getUserId(req);
 
   switch (req.method) {
+    case "GET":
+      let events = await Event.find({ userId });
+      events = events.map((event) => {
+        const { userId, __v, ...rest } = event.toObject();
+        return rest;
+      });
+
+      return res.status(200).json(events);
     case "POST":
       return upload.single("file")(req as any, res as any, async (err) => {
         if (err instanceof multer.MulterError) {

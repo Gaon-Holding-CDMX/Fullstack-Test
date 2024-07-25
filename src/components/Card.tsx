@@ -15,6 +15,7 @@ export default function Card({
         <img
           src={image}
           alt={title}
+          loading="lazy"
           className="w-full h-[10rem] max-lg:h-[7rem] max-sm:h-[10rem] object-cover rounded-t-lg"
         />
       </div>
